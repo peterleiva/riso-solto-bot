@@ -1,0 +1,41 @@
+{
+  "name": "riso-solto-bot",
+  "version": "0.1.0",
+  "description": "just laugh bot for telegram",
+  "main": "src/index.js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint \"src\"",
+    "format": "npm run prettier -- --write",
+    "format:check": "npm run prettier -- --check",
+    "prettier": "prettier --ignore-path .gitignore \".\"",
+    "test": "NODE_ENV=test;LOG_LEVEL=warn jest --maxWorkers=4",
+    "test:watch": "npm t -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pherval/riso-solto-bot.git"
+  },
+  "keywords": [
+    "bot",
+    "telegram",
+    "riso-solto",
+    "laugh"
+  ],
+  "author": "pleiva <npmjs@peter.dev.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pherval/riso-solto-bot/issues"
+  },
+  "homepage": "https://github.com/pherval/riso-solto-bot#readme",
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^25.2.2",
+    "jest": "^27.3.1",
+    "jest-watch-typeahead": "^1.0.0",
+    "prettier": "^2.4.1"
+  }
+}

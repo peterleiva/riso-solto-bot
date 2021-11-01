@@ -1,0 +1,26 @@
+{
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+
+  "rules": {
+    "max-len": ["warn", { "tabWidth": 2 }]
+  },
+
+  "overrides": [
+    {
+      "files": ["./src/**/__*(tests|mocks|snapshots)__/**/*", "./test/**/*"],
+      "env": {
+        "jest/globals": true
+      },
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"]
+    }
+  ]
+}
