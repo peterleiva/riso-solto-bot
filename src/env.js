@@ -9,6 +9,9 @@ if (result.error && !env("production")) {
 const config = {
   port: +(process.env.PORT ?? "3000"),
   logLevel: process.env.LOG_LEVEL ?? "info",
+  sstk: {
+    token: process.env.SHUTTERSTOCK_TOKEN,
+  },
   telegram: {
     token: process.env.TELEGRAM_ACCESS_TOKEN,
   },
