@@ -1,0 +1,75 @@
+name: Deploy to Heroku
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [16]
+        os: [ubuntu-latest]
+    steps:
+      - uses: action/checkout@v2
+      - uses: action/setup-node@v2
+        with:
+          node-version: ${{matrix.os}}
+          cache: "npm"
+      - name: Installing with ${{matrix.node}}
+        run: npm run ci
+      - name: Running test
+        run: npm run lint
+
+  style:
+    runs-on: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [16]
+        os: [ubuntu-latest]
+    steps:
+      - uses: action/checkout@v2
+      - uses: action/setup-node@v2
+        with:
+          node-version: ${{matrix.os}}
+          cache: "npm"
+      - name: Installing with ${{matrix.node}}
+        run: npm run ci
+      - name: Running test
+        run: npm format:check
+
+  test:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        node: [16]
+        os: [ubuntu-latest]
+    steps:
+      - uses: action/checkout@v2
+      - uses: action/setup-node@v2
+        with:
+          node-version: ${{matrix.os}}
+          cache: "npm"
+      - name: Installing with ${{matrix.node}}
+        run: npm run ci
+      - name: Running test
+        run: npm t
+
+  deploy:
+    needs: [test]
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        node: [16]
+        os: [ubuntu-latest]
+    steps:
+      - uses: action/checkout@v2
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "riso-solto-bot"
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
