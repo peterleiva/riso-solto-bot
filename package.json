@@ -14,7 +14,11 @@
     "prettier": "prettier --ignore-path .gitignore \".\"",
     "test": "NODE_ENV=test;LOG_LEVEL=warn jest --maxWorkers=4",
     "test:watch": "npm t -- --watch",
-    "deploy": "pm2 start \"npm start\""
+    "pm2": "./scripts/deploy.sh",
+    "deploy": "npm run pm2 -- start --watch src",
+    "deploy:restart": "npm run pm2 -- restart",
+    "deploy:stop": "npm run pm2 -- stop",
+    "deploy:delete": "npm run pm2 -- delete"
   },
   "repository": {
     "type": "git",
@@ -39,6 +43,7 @@
     "jest": "^27.3.1",
     "jest-watch-typeahead": "^1.0.0",
     "nodemon": "^2.0.14",
+    "pm2": "^5.1.2",
     "prettier": "^2.4.1"
   },
   "dependencies": {
