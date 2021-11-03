@@ -50,6 +50,7 @@
     "chalk": "^4.1.2",
     "debug": "^4.3.2",
     "dotenv": "^10.0.0",
+    "mongoose": "^6.0.12",
     "node-environment": "^0.5.0",
     "shutterstock-api": "^1.1.9",
     "telegraf": "^4.4.2"
