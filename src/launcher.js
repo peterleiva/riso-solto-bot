@@ -25,5 +25,6 @@ export async function launcher() {
     ctx.reply("text");
   });
 
+  bot.command("start", helper);
   bot.command("help", helper);
 }
