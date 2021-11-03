@@ -1,8 +1,8 @@
 export function helper(ctx) {
   const text = `
   O bot é um verdadeiro risão, por isso existe vários comandos para\
-  ele rir de suas piadas sem graça. Pressione \`/\` para enviar os\
-  comandos:
+  ele rir de suas piadas sem graça. Me mencione (@risosoltobot) no seu grupo ou\
+  *Pressione* \`/\` para enviar os comandos:
 
 \`/laugh\` - Fornece uma sincera risada de *qualquer tipo*, se você quiser\
   ter uma surpresa use esse comando. Ele pode retornar um _emoji_ ou um\
