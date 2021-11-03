@@ -5,7 +5,7 @@
   },
   "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 13,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
 
@@ -14,6 +14,12 @@
   },
 
   "overrides": [
+    {
+      "files": "*.cjs",
+      "parserOptions": {
+        "sourceType": "script"
+      }
+    },
     {
       "files": ["./src/**/__*(tests|mocks|snapshots)__/**/*", "./test/**/*"],
       "env": {
