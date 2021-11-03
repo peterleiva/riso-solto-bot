@@ -38,7 +38,8 @@ export async function reply(id) {
 
   if (unusedLaughs.length <= 0) {
     const photos = await searchPhotos();
-    unusedLaughs.push(...dataset, ...photos);
+    unusedLaughs.push(...dataset);
+    unusedLaughs.push(...photos);
   }
 
   const lastIndex = unusedLaughs.length - 1;
