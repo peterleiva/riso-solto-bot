@@ -2,10 +2,12 @@ import chalk from "chalk";
 
 export function shutdown(bot) {
   return signal => {
-    console.log("\n", chalk.red(`Received ${signal} signal`));
-    console.log("Application is shutting down");
+    const reason = `Received ${signal} signal`;
+    console.log("\n%s", chalk.red(reason));
 
     bot.stop(signal);
-    process.exit(0);
+    console.log("Bot stopped.");
+
+    setImmediate(() => process.kill(process.pid, signal));
   };
 }
