@@ -4,7 +4,6 @@ import config from "./env.js";
 import { Telegraf } from "telegraf";
 import { shutdown } from "./shutdown.js";
 import { interactionHandler } from "./riso-solto.js";
-import "./bin/www.cjs";
 
 const BOT_TOKEN = config.telegram.token;
 const bot = new Telegraf(BOT_TOKEN);
