@@ -25,7 +25,7 @@ export function Bot() {
   }
 
   return async function middleware(ctx, next) {
-    if (isPrivate(ctx) || isMention(ctx)) {
+    if (isMention(ctx)) {
       event.emit("message", ctx);
     }
 
