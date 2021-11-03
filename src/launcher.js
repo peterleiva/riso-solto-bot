@@ -2,7 +2,7 @@ import config from "./env.js";
 import { Telegraf } from "telegraf";
 import { shutdown } from "./shutdown.js";
 import { Bot } from "./bot.js";
-import { helper } from "./commands/index.js";
+import { text, helper, emoji } from "./commands/index.js";
 
 function gracefullyStop(bot) {
   const signals = ["SIGINT", "SIGTERM"];
@@ -21,10 +21,9 @@ export async function launcher() {
   gracefullyStop(bot);
 
   bot.on("message", Bot());
-  bot.command("text", ctx => {
-    ctx.reply("text");
-  });
 
   bot.command("start", helper);
+  bot.command("text", text);
+  bot.command("emoji", emoji);
   bot.command("help", helper);
 }
