@@ -15,6 +15,9 @@ const config = {
   telegram: {
     token: process.env.TELEGRAM_ACCESS_TOKEN,
   },
+  database: {
+    url: process.env.DATABASE_URL,
+  },
   env,
   noLog: ["true", "1"].some(v => v === process.env.NO_LOG?.toLowerCase()),
 };

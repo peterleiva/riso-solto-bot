@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 
 import { launcher } from "./launcher.js";
+import db from "./database.js";
 
 try {
+  await db.connect();
   await launcher();
   console.log("Telegram bot is running");
-} catch {
+} catch (error) {
   console.error("Error starting the bot");
+  console.error(error);
   process.exit(1);
 }
