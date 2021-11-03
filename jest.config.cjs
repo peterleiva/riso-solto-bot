@@ -8,6 +8,7 @@ module.exports = {
   collectCoverage: true,
   coverageProvider: "v8",
   coverageDirectory: resolve(__dirname, "coverage"),
+  transform: {},
 
   rootDir: "./src",
   testEnvironment: "node",
