@@ -1,16 +1,5 @@
-import { TextCommand } from "./text.js";
-
-class EmojiCommand extends TextCommand {
-  buildMatch() {
-    return {
-      tags: {
-        $in: ["emoji"],
-      },
-    };
-  }
-}
+import { reply } from "./text.js";
 
 export async function emoji(ctx) {
-  const commander = new EmojiCommand();
-  commander.reply(ctx);
+  reply(ctx, { tags: { $in: ["emoji"] } });
 }
