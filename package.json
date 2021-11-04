@@ -5,6 +5,9 @@
   "main": "src/index.js",
   "private": true,
   "type": "module",
+  "imports": {
+    "#joke": "./src/joke/index.js"
+  },
   "scripts": {
     "start": "node .",
     "dev": "nodemon npm start",

@@ -3,10 +3,18 @@ import concat from "concat-stream";
 
 const DAD_JOKE_URL = "https://icanhazdadjoke.com";
 
-async function getJoke() {
+/**
+ * Getter for random joke
+ *
+ * @return {Promise<string>}
+ */
+export async function getRandomJoke() {
   return new Promise((resolve, reject) => {
     const req = request(DAD_JOKE_URL, {
-      headers: { Accept: "application/json" },
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "RisoSoltoBot bot @risosoltobot for telegram",
+      },
     });
 
     req.on("response", res => {
@@ -25,10 +33,4 @@ async function getJoke() {
     req.on("error", reject);
     req.end();
   });
-}
-
-export async function joke(ctx) {
-  const joke = await getJoke();
-
-  ctx.reply(joke);
 }

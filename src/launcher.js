@@ -2,15 +2,8 @@ import { Telegraf } from "telegraf";
 import { env, database } from "./utils/index.js";
 import { shutdown } from "./shutdown.js";
 import { Bot } from "./bot.js";
-import {
-  text,
-  helper,
-  emoji,
-  image,
-  laugh,
-  meme,
-  joke,
-} from "./commands/index.js";
+import { text, helper, emoji, image, laugh, meme } from "./commands/index.js";
+import { joke } from "#joke";
 
 function gracefullyStop(bot) {
   const signals = ["SIGINT", "SIGTERM"];
