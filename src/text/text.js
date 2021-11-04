@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { Laugh } from "#laugh";
-import { multiplier, numberParser } from "../utils/index.js";
+import { multiplier, numberParser } from "./utils/index.js";
 
 const { Schema } = mongoose;
 
