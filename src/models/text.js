@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+import Laugh from "./laugh.js";
+import { multiplier, numberParser } from "../utils/index.js";
 
-const { model, Schema } = mongoose;
+const { Schema } = mongoose;
 
 const textSchema = new Schema({
   token: {
@@ -11,10 +13,15 @@ const textSchema = new Schema({
     minlength: 1,
     maxlength: 20,
   },
-
-  tags: [String],
 });
 
-const TextModel = model("Text", textSchema);
+textSchema.method("reply", function (ctx) {
+  const response = multiplier(this.token, numberParser(ctx.message.text));
+  ctx.reply(response);
+
+  return response;
+});
+
+const TextModel = Laugh.discriminator("Text", textSchema);
 
 export default TextModel;

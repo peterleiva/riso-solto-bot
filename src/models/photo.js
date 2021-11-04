@@ -1,16 +1,17 @@
 import mongoose from "mongoose";
-const { Schema, model } = mongoose;
+import Laugh from "./laugh.js";
+
+const { Schema } = mongoose;
 
 const sourceSchema = new Schema({
   service: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
     minlength: 2,
   },
 
-  id: {
+  serviceId: {
     type: String,
     required: true,
     unique: true,
@@ -29,6 +30,10 @@ const photoSchema = new Schema({
   },
 });
 
-const PhotoModel = model("Photo", photoSchema);
+photoSchema.method("reply", function (ctx) {
+  ctx.replyWithPhoto(this.url);
+});
+
+const PhotoModel = Laugh.discriminator("Photo", photoSchema);
 
 export default PhotoModel;
