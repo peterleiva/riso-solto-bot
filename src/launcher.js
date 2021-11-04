@@ -2,7 +2,7 @@ import { Telegraf } from "telegraf";
 import { env, database } from "./utils/index.js";
 import { shutdown } from "./shutdown.js";
 import { Bot } from "./bot.js";
-import { image, meme } from "./commands/index.js";
+import { image, meme } from "#image";
 import { joke } from "#joke";
 import { laugh } from "#laugh";
 import { help } from "#help";

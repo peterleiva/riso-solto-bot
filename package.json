@@ -8,6 +8,7 @@
   "imports": {
     "#laugh": "./src/laugh/index.js",
     "#text": "./src/text/index.js",
+    "#image": "./src/image/index.js",
     "#joke": "./src/joke/index.js",
     "#help": "./src/help/index.js"
   },
