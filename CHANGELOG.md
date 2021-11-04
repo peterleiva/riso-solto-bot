@@ -6,6 +6,10 @@ Each log entry can be in the following kind: **Added**[^1], **Changed**[^2], **D
 
 ## [Unreleased]
 
+### Added
+
+- Gracefully stop database
+
 ## [0.2.0] - 2021-11-04
 
 ### Added
