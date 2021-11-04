@@ -1,5 +1,5 @@
 import { Telegraf } from "telegraf";
-import { env } from "./utils/index.js";
+import { env, database } from "./utils/index.js";
 import { shutdown } from "./shutdown.js";
 import { Bot } from "./bot.js";
 import { text, helper, emoji, image, laugh, meme } from "./commands/index.js";
@@ -19,7 +19,9 @@ export async function launcher() {
 
   bot.on("message", Bot());
 
+  await database.connect();
   await bot.launch();
+
   gracefullyStop(bot);
 
   bot.command("start", helper);

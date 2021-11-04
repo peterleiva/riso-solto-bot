@@ -19,3 +19,8 @@ export async function connect() {
     maxPoolSize: 5,
   });
 }
+
+export async function disconnect() {
+  await mongoose.disconnect();
+  console.warn("database disconnected");
+}
