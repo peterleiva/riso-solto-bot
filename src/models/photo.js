@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Laugh from "./laugh.js";
+import { Laugh } from "#laugh";
 
 const { Schema } = mongoose;
 

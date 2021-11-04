@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import { laugh } from "./commands/index.js";
+import { laugh } from "#laugh";
 
 function isMention(ctx) {
   return ctx.message.entities?.some(entity => entity.type === "mention");
