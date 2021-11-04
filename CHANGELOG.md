@@ -6,6 +6,10 @@ Each log entry can be in the following kind: **Added**[^1], **Changed**[^2], **D
 
 ## [Unreleased]
 
+### Changed
+
+- make command `/laugh` more random, select a kind of laugh using a random laugh. There's cases which `images` can have more samples than `text` kind
+
 ## [0.4.0] - 2021-11-04
 
 ### Changed
