@@ -6,6 +6,10 @@ Each log entry can be in the following kind: **Added**[^1], **Changed**[^2], **D
 
 ## [Unreleased]
 
+### Changed
+
+- Architect Project as the image of the features
+
 ## [0.3.1] - 2021-11-04
 
 ### Added
