@@ -17,10 +17,10 @@ export async function launcher() {
   const BOT_TOKEN = config.telegram.token;
   const bot = new Telegraf(BOT_TOKEN);
 
+  bot.on("message", Bot());
+
   await bot.launch();
   gracefullyStop(bot);
-
-  bot.on("message", Bot());
 
   bot.command("start", helper);
   bot.command("laugh", laugh);

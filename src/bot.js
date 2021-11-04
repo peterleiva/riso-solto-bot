@@ -12,12 +12,14 @@ function isPrivate(ctx) {
 export function Bot() {
   const event = new EventEmitter();
 
-  event.on("message", laugh);
+  event.on("mention", laugh);
 
   return async function middleware(ctx, next) {
     if (isMention(ctx)) {
-      event.emit("message", ctx);
+      event.emit("mention", ctx);
     }
+
+    if (isPrivate(ctx)) event.emit("private", ctx);
 
     await next();
   };
