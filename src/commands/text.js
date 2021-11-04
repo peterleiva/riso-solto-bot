@@ -1,18 +1,8 @@
-import createDebug from "debug";
 import { Text as TextModel } from "../models/index.js";
-import numberParser from "../number-parser.js";
-import { multiplier } from "../utils/index.js";
-
-const debug = createDebug("command:text");
+import { command } from "./command.js";
 
 export async function reply(ctx, match) {
-  const result = await TextModel.aggregate().match(match).sample(1).exec();
-
-  debug("aggregation result: %O", result);
-
-  result.map(text => {
-    ctx.reply(multiplier(text.token, numberParser(ctx.message.text)));
-  });
+  command(ctx, TextModel.aggregate().match(match), doc => new TextModel(doc));
 }
 
 export function text(ctx) {
