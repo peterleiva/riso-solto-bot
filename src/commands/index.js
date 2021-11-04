@@ -4,3 +4,4 @@ export * from "./emoji.js";
 export * from "./image.js";
 export * from "./laugh.js";
 export * from "./meme.js";
+export * from "./joke.js";
