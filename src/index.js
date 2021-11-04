@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import { launcher } from "./launcher.js";
-import db from "./database.js";
+import { database as db } from "./utils/index.js";
+
+console.log(db);
 
 try {
   await db.connect();

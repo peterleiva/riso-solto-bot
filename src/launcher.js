@@ -1,5 +1,5 @@
-import config from "./env.js";
 import { Telegraf } from "telegraf";
+import { env } from "./utils/index.js";
 import { shutdown } from "./shutdown.js";
 import { Bot } from "./bot.js";
 import { text, helper, emoji, image, laugh, meme } from "./commands/index.js";
@@ -14,7 +14,7 @@ function gracefullyStop(bot) {
 }
 
 export async function launcher() {
-  const BOT_TOKEN = config.telegram.token;
+  const BOT_TOKEN = env.telegram.token;
   const bot = new Telegraf(BOT_TOKEN);
 
   bot.on("message", Bot());

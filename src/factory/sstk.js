@@ -1,10 +1,10 @@
 import sstk from "shutterstock-api";
-import config from "../env.js";
+import { env } from "../utils/index.js";
 
 /** @typedef {{query: string, per_page: number}} QueryParams */
 /** @typedef {[{huge_thumb: {url: string}}]} Assets */
 
-sstk.setAccessToken(config.sstk.token);
+sstk.setAccessToken(env.sstk.token);
 
 const imagesApi = new sstk.ImagesApi();
 
