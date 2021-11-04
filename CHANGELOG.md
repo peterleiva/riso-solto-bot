@@ -9,6 +9,7 @@ Each log entry can be in the following kind: **Added**[^1], **Changed**[^2], **D
 ### Added
 
 - Gracefully stop database
+- `/joke` command to tell a [dad joke](https://icanhazdadjoke.com/api)
 
 ## [0.2.0] - 2021-11-04
 
