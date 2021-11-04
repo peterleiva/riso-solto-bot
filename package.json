@@ -1,6 +1,6 @@
 {
   "name": "riso-solto-bot",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "just laugh bot for telegram",
   "main": "src/index.js",
   "private": true,
