@@ -1,32 +1,22 @@
-export function help(ctx) {
-  const text = `
-  O bot é um verdadeiro risão, por isso existe vários comandos para\
-  ele rir de suas piadas sem graça. Me mencione (@risosoltobot) no seu grupo ou\
-  *Pressione* \`/\` para enviar os comandos:
+import { readFile } from "fs/promises";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
 
-\`/laugh\` - Fornece uma sincera risada de *qualquer tipo*, se você quiser\
-  ter uma surpresa use esse comando. Ele pode retornar um _emoji_ ou um\
-  _meme_. Nunca se sabe.
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const MARKDOWN_FILE = resolve(__dirname, "./help.md");
 
-\`/meme\` - Envia algum meme surpresa
+async function readHelp() {
+  try {
+    const file = await readFile(MARKDOWN_FILE);
+    return file.toString();
+  } catch (error) {
+    console.error("Markdown not found: %s", MARKDOWN_FILE);
+    console.error(error);
 
-\`/image\` - Envia pessoas que você não conhece rindo
+    return "";
+  }
+}
 
-\`/text\` - Envia uma risada em texto (\`e.g. hahah\`). Esse comando\
-  pode receber uma quantidade _opcional_:
-
-  \`\`\`
-  /text 10
-  hahahahahaha
-  \`\`\`
-
-\`/emoji\` - Envia um emoji qualquer (e.g. 😂 ). Este também aceita um\
-  número _opcional_:
-  \`\`\`
-  /emoji 4
-  😂😂😂😂
-  \`\`\`
-    `;
-
-  ctx.replyWithMarkdown(text);
+export async function help(ctx) {
+  ctx.replyWithMarkdown(await readHelp());
 }
