@@ -1,5 +1,5 @@
-import LaughManager from "./laugh-manager.js";
 import { EventEmitter } from "events";
+import { laugh } from "./commands/index.js";
 
 function isMention(ctx) {
   return ctx.message.entities?.some(entity => entity.type === "mention");
@@ -10,19 +10,9 @@ function isPrivate(ctx) {
 }
 
 export function Bot() {
-  const manager = new LaughManager();
   const event = new EventEmitter();
 
-  event.on("message", reply);
-
-  async function reply(ctx) {
-    if (manager.empty()) {
-      await manager.generate();
-    }
-
-    const laugh = manager.pick();
-    laugh.reply(ctx);
-  }
+  event.on("message", laugh);
 
   return async function middleware(ctx, next) {
     if (isMention(ctx)) {
