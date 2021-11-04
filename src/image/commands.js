@@ -1,8 +1,8 @@
-import Photo from "./photo.js";
+import Image from "./image.js";
 import { command } from "#laugh";
 
 export function image(ctx) {
-  command(ctx, Photo.aggregate(), doc => new Photo(doc));
+  command(ctx, Image.aggregate(), doc => new Image(doc));
 }
 
 export function meme(ctx) {
