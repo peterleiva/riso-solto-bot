@@ -6,6 +6,8 @@ Each log entry can be in the following kind: **Added**[^1], **Changed**[^2], **D
 
 ## [Unreleased]
 
+## [0.4.0] - 2021-11-04
+
 ### Changed
 
 - Architect Project as the image of the features
@@ -44,8 +46,9 @@ RisoSolto has some commands to send laughs, they can be images, text, emoji and 
 
 - Reply for mention @risosoltobot and in private chat
 
-[unreleased]: https://github.com/pherval/riso-solto-bot/compare/v0.3.1...HEAD
-[0.3.0]: https://github.com/pherval/riso-solto-bot/compare/v0.2.0...v0.3.1
+[unreleased]: https://github.com/pherval/riso-solto-bot/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/pherval/riso-solto-bot/compare/v0.3.1...v0.4.0
+[0.3.1]: https://github.com/pherval/riso-solto-bot/compare/v0.2.0...v0.3.1
 [0.2.0]: https://github.com/pherval/riso-solto-bot/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/pherval/riso-solto-bot/releases/tag/v0.1.0
 
