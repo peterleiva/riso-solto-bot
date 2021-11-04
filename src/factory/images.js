@@ -2,7 +2,7 @@
 
 import createDebug from "debug";
 import { getImage } from "./sstk.js";
-import Photo from "./photo.js";
+import { Photo } from "../models/index.js";
 
 const debug = createDebug("factory:images");
 
@@ -17,12 +17,27 @@ export function imageFactory() {
    * @return {Images}
    */
   function transform(dataset) {
-    return dataset.map(
-      asset =>
-        new Photo({
-          url: asset.huge_thumb.url,
-        })
-    );
+    return dataset.map(data => {
+      const photo = new Photo({
+        url: data.assets.huge_thumb.url,
+        source: {
+          service: "shutterstock",
+          serviceId: data.id,
+          original: data,
+        },
+      });
+
+      try {
+        photo.save();
+      } catch (error) {
+        if (error?.code === 11000) {
+          console.warn("photo(%d) already is save", photo.id);
+        } else {
+          throw error;
+        }
+      }
+      return photo;
+    });
   }
 
   return {
@@ -32,10 +47,11 @@ export function imageFactory() {
      */
     create: async () => {
       const resultSet = await getImage();
+      const photos = transform(resultSet);
 
-      debug("found the following images %O", resultSet);
+      debug("found the following images %O", photos);
 
-      return transform(resultSet);
+      return photos;
     },
   };
 }

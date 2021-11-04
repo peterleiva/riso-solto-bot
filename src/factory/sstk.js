@@ -23,7 +23,7 @@ const smileQuery = {
 export async function getImage(queryParams = smileQuery) {
   try {
     const searchResult = await imagesApi.searchImages(queryParams);
-    return searchResult.data.map(d => d.assets);
+    return searchResult.data;
   } catch (error) {
     console.error(error);
   }
