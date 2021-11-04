@@ -1,4 +1,4 @@
-export function helper(ctx) {
+export function help(ctx) {
   const text = `
   O bot é um verdadeiro risão, por isso existe vários comandos para\
   ele rir de suas piadas sem graça. Me mencione (@risosoltobot) no seu grupo ou\

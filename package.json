@@ -7,7 +7,8 @@
   "type": "module",
   "imports": {
     "#joke": "./src/joke/index.js",
-    "#laugh": "./src/laugh/index.js"
+    "#laugh": "./src/laugh/index.js",
+    "#help": "./src/help/index.js"
   },
   "scripts": {
     "start": "node .",

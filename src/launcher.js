@@ -2,9 +2,10 @@ import { Telegraf } from "telegraf";
 import { env, database } from "./utils/index.js";
 import { shutdown } from "./shutdown.js";
 import { Bot } from "./bot.js";
-import { text, helper, emoji, image, meme } from "./commands/index.js";
+import { text, emoji, image, meme } from "./commands/index.js";
 import { joke } from "#joke";
 import { laugh } from "#laugh";
+import { help } from "#help";
 
 function gracefullyStop(bot) {
   const signals = ["SIGINT", "SIGTERM"];
@@ -26,12 +27,12 @@ export async function launcher() {
 
   gracefullyStop(bot);
 
-  bot.command("start", helper);
+  bot.command("start", help);
   bot.command("laugh", laugh);
   bot.command("text", text);
   bot.command("joke", joke);
   bot.command("meme", meme);
   bot.command("emoji", emoji);
   bot.command("image", image);
-  bot.command("help", helper);
+  bot.command("help", help);
 }
