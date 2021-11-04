@@ -6,8 +6,9 @@
   "private": true,
   "type": "module",
   "imports": {
-    "#joke": "./src/joke/index.js",
     "#laugh": "./src/laugh/index.js",
+    "#text": "./src/text/index.js",
+    "#joke": "./src/joke/index.js",
     "#help": "./src/help/index.js"
   },
   "scripts": {
