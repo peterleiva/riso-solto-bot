@@ -58,7 +58,7 @@
     "concat-stream": "^2.0.0",
     "debug": "^4.3.3",
     "dotenv": "^10.0.0",
-    "mongoose": "^6.0.12",
+    "mongoose": "^6.11.4",
     "node-environment": "^0.5.1",
     "shutterstock-api": "^1.1.12",
     "telegraf": "^4.5.2"
